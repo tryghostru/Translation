@@ -1,0 +1,612 @@
+{
+    "common": {
+        "mail": {
+            "title": "Ghost в {domain}"
+        },
+        "seeLinkForInstructions": "Инструкции находятся по ссылке: {link}",
+        "time": {
+            "seconds": "секунд(-ы)"
+        },
+        "api": {
+            "authentication": {
+                "sampleBlogDescription": "Переведено благодаря команде TryGhost.ru",
+                "mail": {
+                    "resetPassword": "Обновить пароль",
+                    "checkEmailForInstructions": "Проверьте свою электронную почту для получения дальнейших инструкций.",
+                    "passwordChanged": "Пароль успешно обновлен!",
+                    "invitationAccepted": "Приглашение принято.",
+                    "yourNewGhostBlog": "Ваш новый блог на Ghost."
+                }
+            },
+            "mail": {
+                "testGhostEmail": "Проверка Ghost Email"
+            },
+            "users": {
+                "mail": {
+                    "invitedByName": "{invitedByName} пригласил вас в {blogName}"
+                }
+            },
+            "clients": {
+                "clientNotFound": "Клиент не найден"
+            }
+        }
+    },
+    "errors": {
+        "apps": {
+            "failedToParseActiveAppsSettings": {
+                "error": "Не удалось проанализировать значение параметра active_apps: {message}",
+                "context": "Ваши приложения не могут быть загружены.",
+                "help": "Проверьте таблицу настроек в значении active_apps. Он должен выглядеть так: [\"app-1\", \"app2\"] (требуется двойная кавычка)."
+            },
+            "appWillNotBeLoaded": {
+                "error": "Приложение не может быть загружено.",
+                "help": "Проконсультируйтесь с создателем приложения или прочитайте документацию к приложению для получения более подробной информации о требованиях к приложениям."
+            },
+            "permissionsErrorLoadingApp": {
+                "error": "Произошла ошибка при загрузки приложения: {name}; Проверьте значение reading в разрешениях: {message}"
+            },
+            "noInstallMethodLoadingApp": {
+                "error": "Произошла ошибка при загрузки приложения: {name}; метод install() не определён."
+            },
+            "noActivateMethodLoadingApp": {
+                "error": "Произошла ошибка при загрузки приложения: {name}; метод activate() не определён."
+            },
+            "accessResourceWithoutPermission": {
+                "error": "Приложения \"{name}\" пыталась произвести действие или получить доступ к ресурсу: ({perm}.{method}) без разрешения."
+            },
+            "mustProvideAppName": {
+                "error": "Должно быть указано имя приложения для API"
+            },
+            "mustProvideAppPermissions": {
+                "error": "Должен обеспечить разрешения для приложения."
+            },
+            "unsafeAppRequire": {
+                "error": "Небезопасное приложение требует: {msg}"
+            }
+        },
+        "middleware": {
+            "api": {
+                "versionMismatch": "Запрос клиента для {clientVersion} не соответствует версии сервера {serverVersion}."
+            },
+            "auth": {
+                "clientAuthenticationFailed": "Ошибка при аутентификации клиента.",
+                "clientCredentialsNotProvided": "Учетные данные пользователя не были предоставлены.",
+                "clientCredentialsNotValid": "Учетные данные пользователя недействительны.",
+                "forInformationRead": "Для получения информации о том, как исправить это, прочитайте {url}.",
+                "accessDenied": "Доступ закрыт.",
+                "pleaseSignIn": "Пожалуйста авторизуйтесь"
+            },
+            "oauth": {
+                "invalidClient": "Недействительный пользователя",
+                "invalidRefreshToken": "Недопустимый токен обновления.",
+                "refreshTokenExpired": "Токен обновлен."
+            },
+            "privateblogging": {
+                "wrongPassword": "Неправильный пароль"
+            },
+            "spamprevention": {
+                "tooManyAttempts": "Слишком много попыток.",
+                "noUsername": "Введите имя пользователя.",
+                "noPassword": "Введите пароль.",
+                "tooManySigninAttempts": {
+                    "error": "Только {rateSigninAttempts} проверяет каждый IP-адрес каждые {rateSigninPeriod} секунд.",
+                    "context": "Слишком много попыток входа в систему."
+                },
+                "tryAgainLater": " Попробуйте позже",
+                "waitOneHour": " Попробуйте через 1 час.",
+                "noEmail": "Введите email.",
+                "forgottenPasswordEmail": {
+                    "error": "Only {rfa} forgotten password attempts per email every {rfp} seconds.",
+                    "context": "Ошибка попытки сброса пароля."
+                },
+                "forgottenPasswordIp": {
+                    "error": "Only {rfa} tries per IP address every {rfp} seconds.",
+                    "context": "Ошибка попытки сброса пароля"
+                }
+            },
+            "themehandler": {
+                "missingTheme": "Активная тема: \"{theme}\" не найдена.",
+                "invalidTheme": "Активная тема: \"{theme}\" является недействительным.",
+                "themeHasErrors": "Активная тема: \"{theme}\" имеет ошибки, но способна работать.",
+                "activateFailed": "Невозможно активировать тему: \"{theme}\"."
+            },
+            "redirects": {
+                "register": "Could not register custom redirects."
+            }
+        },
+        "utils": {
+            "parsepackagejson": {
+                "couldNotReadPackage": "Не могу прочитать файл package.json",
+                "nameOrVersionMissing": "\"name\" или \"version\" отсутствует в файле темы package.json.",
+                "willBeRequired": "Это будет необходимо в будущем. Пожалуйста, смотрите: {url}",
+                "themeFileIsMalformed": "Файл package.json данной темы поврежден"
+            },
+            "blogIcon": {
+                "error": "Не удалось получить размеры значков(иконок)."
+            },
+            "redirectsWrongFormat": "Неправильный формат файла перенаправлений."
+        },
+        "config": {
+            "couldNotLocateConfigFile": {
+                "error": "Не удалось найти файл конфигурации.",
+                "help": "Проверьте config.js или config.example.js."
+            },
+            "couldNotOpenForReading": {
+                "error": "Не удалось открыть {file} для чтения.",
+                "help": "Проверьте config.js или config.example.js."
+            },
+            "couldNotOpenForWriting": {
+                "error": "Не удалось открыть {file} для записи.",
+                "help": "Проверьте config.js или config.example.js."
+            },
+            "invalidUrlInConfig": {
+                "error": "неверный url сайта",
+                "description": "URL вашего сайта в config.js недействителен.",
+                "help": "Пожалуйста, убедитесь, что это правильный URL-адрес перед перезапуском"
+            },
+            "urlCannotContainGhostSubdir": {
+                "error": "подкаталог ghost не разрешен",
+                "description": "URL вашего сайта в config.js не может содержать подкаталог с именем ghost.",
+                "help": "Пожалуйста, переименуйте подкаталог перед перезапуском"
+            },
+            "urlCannotContainPrivateSubdir": {
+                "error": "закрытый подкаталог запрещен",
+                "description": "URL вашего сайта в config.js не может содержать подкаталог с именем private.",
+                "help": "Пожалуйста, переименуйте подкаталог перед перезапуском"
+            },
+            "dbConfigInvalid": {
+                "error": "неверная конфигурация базы данных",
+                "description": "Ваша конфигурация базы данных в config.js неверна.",
+                "help": "Пожалуйста, убедитесь в корректности введенных данных базы данных"
+            },
+            "deprecatedProperty": {
+                "error": "[{property}] конфигурация устарела.",
+                "explanation": "Это будет удалено в следующей версии, пожалуйста, обновите файл config.js.",
+                "help": "Пожалуйста, проверьте {url} для самого последнего примера."
+            },
+            "invalidServerValues": {
+                "error": "введены некорректные данные сервера",
+                "description": "Введены невалидные данные вашего сервера (socket, или host и port) в файле config.js",
+                "help": "Сохраните все данные перед перезапуском сервера"
+            }
+        },
+        "general": {
+            "maintenance": "Возникли некоторые технические неполадки, попробуйте попозже.",
+            "maintenanceUrlService": "Ghost запускается, повторите через несколько секунд",
+            "requiredOnFuture": "Это будет необходимо в будущем. Поподробнее {link}",
+            "internalError": "Что-то пошло не так.",
+            "jsonParse": "Не получилось распарсить JSON: {context}."
+        },
+        "httpServer": {
+            "addressInUse": {
+                "error": "(EADDRINUSE) Не получилось запустить Ghost.",
+                "context": "Порт {port} уже используется другой программой.",
+                "help": "Другой экземпляр Ghost уже запущен?"
+            },
+            "otherError": {
+                "error": "(Code: {errorNumber})",
+                "context": "Произошла ошибка при запуске вашего сервера.",
+                "help": "Пожалуйста, используйте код ошибки выше, чтобы найти решение."
+            }
+        },
+        "mail": {
+            "incompleteMessageData": {
+                "error": "Неполные данные сообщения."
+            },
+            "failedSendingEmail": {
+                "error": "Не удалось отправить письмо."
+            },
+            "noMailServerAtAddress": {
+                "error": " Не удалось найти почтовый сервер по домену: {domain}."
+            },
+            "reason": " Причина: {reason}."
+        },
+        "models": {
+            "subscriber": {
+                "notEnoughPermission": "У вас нет разрешения на выполнение этого действия"
+            },
+            "post": {
+                "postNotFound": "Не удалось найти посты.",
+                "untitled": "(Название)",
+                "valueCannotBeBlank": "Значение {key} не должно быть пустым.",
+                "isAlreadyPublished": "Ваш пост уже опубликован, перезагрузите страницу.",
+                "expectedPublishedAtInFuture": "Дата публикации должна быть не менее чем {cannotScheduleAPostBeforeInMinutes} минутах в будущем.",
+                "noUserFound": "Такого пользователя не существует",
+                "notEnoughPermission": "У вас нет разрешения на выполнение этого действия",
+                "tagUpdates": {
+                    "error": "Невозможно сохранить тег.",
+                    "help": "Ваш пост был сохранен, но ваши теги не были обновлены."
+                }
+            },
+            "role": {
+                "roleNotFound": "Не удалось найти данную роль.",
+                "notEnoughPermission": "У вас нет разрешения на выполнение этого действия"
+            },
+            "settings": {
+                "valueCannotBeBlank": "Значение [settings.key] не должно быть пустым..",
+                "unableToFindSetting": "Невозможно найти настройку для обновления: {key}",
+                "unableToFindDefaultSetting": "Невозможно найти настройку поумолчанию для обновления: {key}"
+            },
+            "user": {
+                "missingContext": "пропущен контекст",
+                "onlyOneRolePerUserSupported": "На данный момент поддерживается только одна роль на пользователя.",
+                "methodDoesNotSupportOwnerRole": "Этот метод не поддерживает назначение роли владельца",
+                "passwordDoesNotComplyLength": "Ваш пароль должен состоят минимум из {minLength} символов.",
+                "passwordDoesNotComplySecurity": "Простите, но ваш пароль недостаточно сложный.",
+                "notEnoughPermission": "У вас нет разрешения на выполнение этого действия",
+                "noUserWithEnteredEmailAddr": "Не удалось найти пользователя с таким адресом электронной почты.",
+                "userIsInactive": "Пользователь с таким адресом электронной почты неактивен.",
+                "userUpdateError": {
+                    "emailIsAlreadyInUse": "Данная электронная почта уже используется",
+                    "context": "При входе в систему, возникли ошибки обновления пользователя.",
+                    "help": "Посетите и сохраните свой профиль после входа в систему, чтобы проверить наличие ошибок."
+                },
+                "incorrectPassword": "Вы ввели неправильный пароль.",
+                "accountLocked": "Ваш аккаунт временно заблокирован. Пожалуйста, сбросьте пароль по ссылке: \"Забыли пароль?\"",
+                "accountSuspended": "Работа вашего аккаунта приостановлена.",
+                "newPasswordsDoNotMatch": "Ваши новые пароли не совпадают",
+                "passwordRequiredForOperation": "Введите пароль для подтверждения действия",
+                "expiredToken": "Время действия токена просрочена",
+                "tokenLocked": "Работа токена заблокирована",
+                "invalidToken": "Некорректный токен",
+                "userNotFound": "Пользователь не найден",
+                "ownerNotFound": "Владелец не найден",
+                "onlyOwnerCanTransferOwnerRole": "Только владельцы могут передавать роль владельца.",
+                "onlyAdmCanBeAssignedOwnerRole": "Только владелец может назначить роль администратора."
+            },
+            "base": {
+                "index": {
+                    "missingContext": "пропущен контекст"
+                },
+                "token": {
+                    "noUserFound": "Такого пользователя не существует",
+                    "tokenNotFound": "Пропущен токен"
+                },
+                "invalidDate": "Формат даты `{key}` некорректен."
+            },
+            "plugins": {
+                "filter": {
+                    "errorParsing": "Ошибка при парсинге фильтров",
+                    "forInformationRead": "Больше информации о том, как использовать фильтры можно найти по ссылке {url}"
+                }
+            }
+        },
+        "permissions": {
+            "noActionsMapFound": {
+                "error": "Карта действий не найдена, убедитесь, что вы загрузили разрешения в базу данных, а затем вызовите permissions.init() перед использованием."
+            },
+            "applyStatusRules": {
+                "error": "У вас нет разрешения на получение {docName} с таким статусом"
+            },
+            "noPermissionToAction": "У вас нет разрешения на выполнение этого действия"
+        },
+        "updateCheck": {
+            "checkingForUpdatesFailed": {
+                "error": "Проверка обновлений не удалась, ваш блог продолжит функционировать.",
+                "help": "Если вы получаете эту ошибку несколько раз, пожалуйста, обратитесь за помощью к {url}."
+            },
+            "unableToDecodeUpdateResponse": {
+                "error": "Невозможно декодировать ответ обновления"
+            }
+        },
+        "api": {
+            "common": {
+                "invalidTokenStructure": "Структура токена некорректная"
+            },
+            "authentication": {
+                "setupUnableToRun": "В базе данных отсутствуют данные. Пожалуйста, перезагрузите базу данных и попробуйте снова.",
+                "setupMustBeCompleted": "Настройка должна быть завершена перед выполнением этого запроса.",
+                "noEmailProvided": "Адрес электронной почты не указан.",
+                "noTokenProvided": "Токен не указан.",
+                "noPasswordProvided": "Пароль не указан.",
+                "noNameProvided": "Имя не указана.",
+                "invalidEmailReceived": "Сервер не получил письмо",
+                "setupAlreadyCompleted": "Настройка завершена.",
+                "unableToSendWelcomeEmail": "Неудалось отправить приветственное письмо.",
+                "checkEmailConfigInstructions": "Изучите инструкцию по настройте электронной почты по ссылке {url}.",
+                "notLoggedIn": "Вы не авторизованы.",
+                "notTheBlogOwner": "Вы не владелец блога.",
+                "invalidTokenTypeHint": "Указан некорректный тип токена.",
+                "invalidTokenProvided": "Указан некорректный токен.",
+                "tokenRevocationFailed": "Ошибка отзыва токена."
+            },
+            "clients": {
+                "clientNotFound": "Клиент не найден."
+            },
+            "configuration": {
+                "invalidKey": "Некорректный ключ"
+            },
+            "db": {
+                "missingFile": "Пожалуйста, выберите файл базы данных для импорта.",
+                "invalidFile": "Неподдерживаемый файл. Пожалуйста, попробуйте любой из следующих форматов: {extensions}",
+                "noPermissionToExportData": "У вас нет разрешения на экспорт данных (нет прав).",
+                "noPermissionToImportData": "У вас нет разрешения на импорта данных (нет прав)."
+            },
+            "mail": {
+                "noPermissionToSendEmail": "У вас нет разрешения на отправку писем.",
+                "cannotFindCurrentUser": "Не удалось найти текущего пользователя."
+            },
+            "notifications": {
+                "noPermissionToBrowseNotif": "У вас нет разрешения на просмотр уведомлений.",
+                "noPermissionToAddNotif": "У вас нет разрешения на добавление уведомлений.",
+                "noPermissionToDestroyNotif": "У вас нет разрешения на удаление уведомлений.",
+                "noPermissionToDismissNotif": "У вас нет разрешения отклонить это уведомление.",
+                "notificationDoesNotExist": "Уведомление не существует."
+            },
+            "posts": {
+                "postNotFound": "Пост не найден."
+            },
+            "job": {
+                "notFound": "Работа не найдена.",
+                "publishInThePast": "Используйте флаг force для публикации поста в прошлом."
+            },
+            "redirects": {
+                "missingFile": "Выберите JSON файл.",
+                "invalidFile": "Пожалуйста, выберите корректный файл JSON для импорта."
+            },
+            "settings": {
+                "problemFindingSetting": "Проблема с поиском настроек: {key}",
+                "accessCoreSettingFromExtReq": "Попытка получить доступ к настройке ядра из внешнего запроса",
+                "activeThemeSetViaAPI": {
+                    "error": "Попытка изменить active_theme через настройки API",
+                    "help": "Пожалуйста, активируйте тему через API"
+                },
+                "invalidJsonInLabs": "Error: Invalid JSON in settings.labs",
+                "labsColumnCouldNotBeParsed": "Столбец с ключом \"labs\" не может быть проанализирован как JSON",
+                "tryUpdatingLabs": "Пожалуйста, попробуйте обновить настройки на странице Labs или вручную отредактировать вашу базу данных.",
+                "noPermissionToEditSettings": "У вас нет разрешения на редактирование настроек.",
+                "noPermissionToReadSettings": "У вас нет разрешения на чтение настроек."
+            },
+            "slugs": {
+                "couldNotGenerateSlug": "Could not generate slug.",
+                "unknownSlugType": "Unknown slug type '{type}'."
+            },
+            "subscribers": {
+                "missingFile": "Выберите CSV.",
+                "invalidFile": "Пожалуйста, выберите корректный CVS файл для импорта.",
+                "subscriberNotFound": "Подписчик не найден.",
+                "subscriberAlreadyExists": "Данный email уже подписан на обновения блога."
+            },
+            "tags": {
+                "tagNotFound": "Тег не найден."
+            },
+            "themes": {
+                "noPermissionToBrowseThemes": "У вас нет разрешения на просмотр тем.",
+                "noPermissionToEditThemes": "У вас нет разрешения на редактирование тем.",
+                "themeDoesNotExist": "Тема не найдена.",
+                "invalidTheme": "Тема не совместима или содержит ошибки.",
+                "invalidThemeName": "Выберите корректную тему.",
+                "missingFile": "Выберите тему.",
+                "invalidFile": "Выберите корректный zip файл с темой.",
+                "overrideCasper": "Переименуйте ваш zip файл, запрещается перезапись темы Casper.",
+                "destroyCasper": "Запрещается удаление основной темы Casper.",
+                "destroyActive": "Запрещается удаление активной темы."
+            },
+            "images": {
+                "missingFile": "Выберите изображение.",
+                "invalidFile": "Выберите корректное изображение."
+            },
+            "icons": {
+                "missingFile": "Выберите иконку.",
+                "invalidFile": "Иконка блога должена быть квадратной, формата .ico или .png между 60px – 1,000px, не более 100kb.",
+                "couldNotGetSize": "Не удалось получить размеры иконки"
+            },
+            "users": {
+                "userNotFound": "Пользователь не найден.",
+                "cannotChangeOwnRole": "Вы не можете изменить собственную роль.",
+                "cannotChangeStatus": "Вы не можете изменить свой собственный статус.",
+                "cannotChangeOwnersRole": "Невозможно изменить роль владельца",
+                "noPermissionToEditUser": "У вас нет прав на редактирование этого пользователя",
+                "noPermissionToAddUser": "У вас нет разрешения на добавление этого пользователя",
+                "noEmailProvided": "Адрес электронной почты не указан.",
+                "userAlreadyRegistered": "Пользователь уже зарегистрирован.",
+                "noPermissionToDestroyUser": "У вас нет разрешения на удаление этого пользователя.",
+                "noPermissionToChangeUsersPwd": "У вас нет прав на изменение пароля для этого пользователя"
+            },
+            "utils": {
+                "noPermissionToCall": "У вас нет разрешения на {method} {docName}",
+                "noRootKeyProvided": "Root ключ ('{docName}') не указан.",
+                "invalidStructure": "Действительная структура объекта не предусмотрена для: {key}",
+                "invalidIdProvided": "Указан неверный идентификатор."
+            },
+            "invites": {
+                "inviteNotFound": "Приглашение не найдена.",
+                "inviteExpired": "Срок действия приглашения истек.",
+                "emailIsRequired": "Требуется email.",
+                "roleIsRequired": "Требуется роль.",
+                "roleNotFound": "Роль не найдена.",
+                "errorSendingEmail": {
+                    "error": "Ошибка при отправке электронной почты: {message}",
+                    "help": "Пожалуйста, проверьте настройки электронной почты и повторно отправьте приглашение."
+                },
+                "notAllowedToInviteOwner": "Не разрешено приглашать пользователя с ролью владельца.",
+                "notAllowedToInvite": "Не разрешено приглашать пользователя с данной ролью."
+            },
+            "webhooks": {
+                "webhookAlreadyExists": "Webhook для запрошенного события с target_url уже существует."
+            },
+            "oembed": {
+                "noUrlProvided": "URL не указан.",
+                "unknownProvider": "Поставщик URL не найден."
+            }
+        },
+        "data": {
+            "export": {
+                "errorExportingData": "Ошибка экспорта данных"
+            },
+            "import": {
+                "dataImporter": {
+                    "unableToFindOwner": "Невозможно найти владельца"
+                },
+                "index": {
+                    "duplicateEntryFound": "Найдена повторяющаяся запись. Для {OffndingProperty} найдено несколько значений '{value}'."
+                },
+                "utils": {
+                    "dataLinkedToUnknownUser": "Попытка импортировать данные, связанные с неизвестным идентификатором пользователя {userToMap}"
+                }
+            },
+            "importer": {
+                "index": {
+                    "couldNotCleanUpFile": {
+                        "error": "Импорт не может очистить файл ",
+                        "context": "Ваш блог продолжит работать как положено"
+                    },
+                    "unsupportedRoonExport": "Ваш zip-файл выглядит как старый формат Roon export, пожалуйста, реэкспортируйте свой Roon блог и попробуйте снова.",
+                    "noContentToImport": "Zip did not include any content to import.",
+                    "invalidZipStructure": "Invalid zip file structure.",
+                    "invalidZipFileBaseDirectory": "Invalid zip file: base directory read failed",
+                    "zipContainsMultipleDataFormats": "Zip file contains multiple data formats. Please split up and import separately."
+                },
+                "handlers": {
+                    "json": {
+                        "invalidJsonFormat": "Invalid JSON format, expected `{ db: [exportedData] }`",
+                        "apiDbImportContent": "API DB import content",
+                        "checkImportJsonIsValid": "check that the import file is valid JSON.",
+                        "failedToParseImportJson": "Failed to parse the import JSON file."
+                    }
+                }
+            }
+        },
+        "services": {
+            "ping": {
+                "requestFailed": {
+                    "error": "The {service} service was unable to send a ping request, your blog will continue to function.",
+                    "help": "If you get this error repeatedly, please seek help on {url}."
+                }
+            },
+            "settings": {
+                "yaml": {
+                    "error": "Could not parse {file}: {context}.",
+                    "help": "Check your {file} file for typos and fix the named issues.",
+                    "validate": "The following definition \"{at}\" is invalid: {reason}"
+                },
+                "loader": "Error trying to load YAML setting for {setting} from '{path}'.",
+                "ensureSettings": "Error trying to access settings files in {path}."
+            }
+        },
+        "errors": {
+            "noMessageSupplied": "no message supplied",
+            "error": "\nОшибка:",
+            "warning": "\nПредупреждение:",
+            "anErrorOccurred": "An error occurred",
+            "unknownErrorOccurred": "An unknown error occurred.",
+            "unknownError": "Unknown Error",
+            "unknownApiError": "Unknown API Error",
+            "databaseIsReadOnly": "Your database is in read only mode. Visitors can read your blog, but you can't log in or add posts.",
+            "checkDatabase": "Check your database file and make sure that file owner and permissions are correct.",
+            "notEnoughPermission": "У вас нет разрешения на выполнение этого действия",
+            "errorWhilstRenderingError": "Error whilst rendering error page",
+            "errorTemplateHasError": "Error template has an error",
+            "oopsErrorTemplateHasError": "Oops, seems there is an error in the error template.",
+            "encounteredError": "Encountered the error: ",
+            "whilstTryingToRender": "whilst trying to render an error page for the error: ",
+            "renderingErrorPage": "Рендиринг страницы ошибок",
+            "caughtProcessingError": "Ghost обнаружил ошибку обработки в middleware.",
+            "imageNotFound": "Изображение не найдено",
+            "imageNotFoundWithRef": "Изображение не найдено: {img}",
+            "cannotReadImage": "Не удалось прочитать изображение: {img}",
+            "pageNotFound": "Страница не найдена",
+            "resourceNotFound": "Ресурс не найден"
+        }
+    },
+    "warnings": {
+        "index": {
+            "usingDirectMethodToSendEmail": "Ghost пытается использовать прямой метод для отправки электронной почты. \nРекомендуется явно настроить службу электронной почты.",
+            "unableToSendEmail": "Ghost не может настоящее время отправить письмо."
+        },
+        "helpers": {
+            "helperNotAvailable": "Помощник \\{\\{{helperName}\\}\\} не доступен.",
+            "flagMustBeEnabled": "Флаг {flagName} должен быть включен в Labs, если вы хотите использовать помощник \\ {\\ {{helperName} \\} \\}.",
+            "seeLink": "Поподробнее {url}",
+            "mustBeCalledAsBlock": "Помощник \\{\\{{helperName}\\}\\} должен вызываться как блок. Например  \\{\\{#{helperName}\\}\\} \\{\\{/{helperName}\\}\\}",
+            "foreach": {
+                "iteratorNeeded": "Необходимо передать итератор в #foreach"
+            },
+            "get": {
+                "invalidResource": "Недопустимый ресурс, заданный для получения помощника"
+            },
+            "has": {
+                "invalidAttribute": "Недействительные или не атрибут дан был помощником"
+            },
+            "index": {
+                "missingHelper": "Отсутствует помощник: '{arg}'"
+            },
+            "is": {
+                "invalidAttribute": "Недопустимый или нет атрибута, заданного из helper (помощника)"
+            },
+            "navigation": {
+                "invalidData": "Навигационные данные не являются объектом или функцией",
+                "valuesMustBeDefined": "Все значения должны быть определены для label, url и current",
+                "valuesMustBeString": "Неверное значение, Url и Label должны быть строкой"
+            },
+            "page_url": {
+                "isDeprecated": "Внимание : pageUrl устарел, пожалуйста используйте page_url \n Помощьник pageUrl был заменен на page_url в Ghost 0.4.2, и будует полностью удалены в Ghost 0.6\n В вашей теме pagination.hbs (файл), pageUrl следует переименовать в page_url"
+            },
+            "pagination": {
+                "invalidData": "\\{\\{pagination\\}\\} был использован вне пронумерованных контексте. Посмотрите https://themes.ghost.org/v1.23.0/docs/pagination.",
+                "valuesMustBeDefined": "Все значения должны быть определены для page(страницы), pages(страниц), limit(предела/лимита) и total(суммарного)",
+                "nextPrevValuesMustBeNumeric": "Недопустимое значение, Next(Следующий)/Prev(Предыдущий) должно быть числом",
+                "valuesMustBeNumeric": "Invalid value, check page, pages, limit and total are numbers"
+            },
+            "plural": {
+                "valuesMustBeDefined": "Все значения должны быть определены для пустых, единственного и множественного числа"
+            },
+            "img_url": {
+                "attrIsRequired": "Требуется атрибут, например \\{\\{img_url feature_image\\}\\}",
+                "attrIsUnknown": "Переданный атрибут \\{\\{img_url\\}\\} неизвестна"
+            },
+            "template": {
+                "templateNotFound": "Шаблон {name} не найден."
+            }
+        }
+    },
+    "notices": {
+        "index": {
+            "welcomeToGhost": "Добро пожаловать в Ghost."
+        },
+        "httpServer": {
+            "cantTouchThis": "Не могу получить доступ",
+            "ghostIsRunning": "Ghost запускается...",
+            "yourBlogIsAvailableOn": "Ваш блог запущен по адресу: {url}",
+            "ctrlCToShutDown": "Ctrl+C для того что-бы выключить",
+            "ghostIsRunningIn": "Ghost запущен {env}...",
+            "listeningOn": "Слушает: {host}:{port}",
+            "urlConfiguredAs": "Url настроен: {url}",
+            "ghostHasShutdown": "Ghost has shut down",
+            "yourBlogIsNowOffline": "Ваш блог выключен",
+            "ghostWasRunningFor": "Ghost был запущен для",
+            "ghostIsClosingConnections": "Закрыт соединение для Ghost"
+        },
+        "mail": {
+            "messageSent": "Сообщение отрпавлено. Дважды проверьте папку «Входящие» и «Спам»!"
+        },
+        "api": {
+            "users": {
+                "pwdChangedSuccessfully": "Пароль успешно изменён."
+            }
+        },
+        "data": {
+            "fixtures": {
+                "jQueryRemoved": "jQuery был удален из ядра Ghost и теперь загружается из CDN jQuery Foundation."
+            },
+            "utils": {
+                "index": {
+                    "noSupportForDatabase": "Нет поддержки для клиента базы данных {client}"
+                }
+            },
+            "validation": {
+                "index": {
+                    "valueCannotBeBlank": "Значение в [{tableName}.{columnKey}] не может быть пустым.",
+                    "valueMustBeBoolean": "Значение в [{tableName}.{columnKey}] может быть true, false, 0 или 1.",
+                    "valueExceedsMaxLength": "Значение в [{tableName}.{columnKey}] привышает максимальную длинну({maxlength}) символов.",
+                    "valueIsNotInteger": "Значение в [{tableName}.{columnKey}] не целое число.",
+                    "themeCannotBeActivated": "{themeName} перед активацией, установите ёё",
+                    "validationFailed": "Проверка ({validationName}) завершилась неудачно для {key}",
+                    "validationFailedTypes": {
+                        "isLength": "Значение в [{tableName}.{key}] привышает максимальную длинну({max}) символов."
+                    }
+                }
+            }
+        }
+    }
+}
